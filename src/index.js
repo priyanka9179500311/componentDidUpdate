@@ -1,17 +1,39 @@
-import React from 'react';
+//Import area
+//Import something from 'somelibrary';
+
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//Create an Class Component
+class Myclass extends Component{
+    //1.Property
+    state = { };
+    //2.Constructor
+    constructor(props){
+        super(props);
+        console.log('hello from constructor');
+        //The role Constructor is to Initializing the Properties
+        this.state = {myName:"Priyanka","surname":"yadav"};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    }
+    componentDidMount(){
+        console.log('Hello from componentDidMount');
+        this.setState({ myName:"Mahima","surname":"Aarya"});
+    }
+    componentDidUpdate(){
+        console.log('Hello from componentDidUpdate');
+    }
+    //3.Method
+    //Every Method Must have render method
+    render(){
+        console.log('Hello from render Method');
+        //Every render method return HTML
+        return(
+            <div>
+                Hello {this.state.myName} {this.state.surname}
+            </div>
+        );
+    }
+}
+//object.method();
+ReactDOM.render(<Myclass />,document.getElementById('root'));//actual argument
